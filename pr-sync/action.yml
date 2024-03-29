@@ -1,0 +1,31 @@
+name: Glint PR Sync
+description: Action to sync Glint PR tracking
+inputs:
+  github-token:
+    description: The GitHub account token to use for posting reviews
+    required: true
+  app-id:
+    description: The Application ID of the GitHub App to use for authentication
+    required: true
+  private-key:
+    description: The Private Key of the GitHub App to use for authentication
+    required: true
+  installation-id:
+    description: The Installation ID of the GitHub App to use for authentication
+    required: true
+  project-id:
+    description: The ID of the project board to sync PRs towards
+    required: true
+  excluded-users:
+    description: A comma separated list of usernames of users that should not be assigned PRs
+    required: false
+  owning-teams:
+    description: A comma separated list of team IDs that can be assigned PRs
+    required: false
+  auto-assign:
+    description: Should do automatic assignment of PRs to team members (defaults to true)
+    required: false
+outputs: {}
+runs:
+  using: node16
+  main: ./entry.js

@@ -1,0 +1,16 @@
+name: Cron
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: kozmoai/actions/cron@v0.6.2
+        with:
+          app-id: ${{ secrets.GLINT_GOALIE_APPLICATION_ID }}
+          private-key: ${{ secrets.GLINT_GOALIE_PRIVATE_KEY }}
+          installation-id: ${{ secrets.GLINT_GOALIE_INSTALLATION_ID }}
